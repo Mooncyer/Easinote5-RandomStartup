@@ -1,0 +1,24 @@
+# 构建产物
+/dist/
+*.exe
+*.pdb
+*.zip
+
+# 日志
+*.log
+
+# 构建时生成的图标（含第三方图标）与快捷方式
+/resources/app.ico
+*.lnk
+
+# 图片库（版权原因不入库；自行在仓库同级或仓库内准备 SeewoStartup）
+/SeewoStartup/
+
+# 编辑器 / 系统
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+Thumbs.db
+desktop.ini
