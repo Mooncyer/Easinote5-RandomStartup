@@ -2,6 +2,17 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/) 与 [Keep a Changelog](https://keepachangelog.com/zh-CN/)。
 
+## [0.0.2] - 2026-10-24
+
+### 新增
+
+- 程序集版本信息（`src/Version.cs`）：exe 现在带有文件版本与产品版本，本版为 `0.0.2`。
+- 首个 GitHub Release 压缩包 `希沃白板5随机启动图.zip`：内含程序、图片库与安装 / 还原脚本。
+
+### 变更
+
+- `scripts/build.ps1` 改为连同 `src/Version.cs` 一起编译。
+
 ## [1.0.0] - 2026-09-13
 
 ### 新增

@@ -1,4 +1,4 @@
-﻿# 编译 src\SeewoRandomStartup.cs -> dist\SeewoRandomStartup.exe
+# 编译 src\SeewoRandomStartup.cs -> dist\SeewoRandomStartup.exe
 # 使用系统自带的 .NET Framework 编译器（csc.exe），无需安装任何 SDK。
 $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'common.ps1')
@@ -30,14 +30,15 @@ if (-not (Test-Path -LiteralPath $ico)) {
 
 # 注意：必须用变量展开（/out:$out），不要在数组里写 '/out:' + (...)，否则参数会被 PowerShell 拆开。
 $src      = Join-Path $root 'src\SeewoRandomStartup.cs'
+$version  = Join-Path $root 'src\Version.cs'
 $manifest = Join-Path $root 'src\app.manifest'
 $out      = Get-BuiltExe
 
 if (Test-Path -LiteralPath $ico) {
-    & $csc /nologo /target:winexe /platform:anycpu /optimize+ /codepage:65001 /out:$out /win32manifest:$manifest /win32icon:$ico $src
+    & $csc /nologo /target:winexe /platform:anycpu /optimize+ /codepage:65001 /out:$out /win32manifest:$manifest /win32icon:$ico $src $version
 }
 else {
-    & $csc /nologo /target:winexe /platform:anycpu /optimize+ /codepage:65001 /out:$out /win32manifest:$manifest $src
+    & $csc /nologo /target:winexe /platform:anycpu /optimize+ /codepage:65001 /out:$out /win32manifest:$manifest $src $version
 }
 if ($LASTEXITCODE -ne 0) { throw "编译失败，退出码 $LASTEXITCODE" }
 Write-Host ('已生成: ' + $out)
